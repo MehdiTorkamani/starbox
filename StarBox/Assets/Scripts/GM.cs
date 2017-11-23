@@ -9,6 +9,7 @@ public class GM : MonoBehaviour {
 	[SerializeField] GameObject[] levels;
 
 	[SerializeField] GameObject startPanel;
+	[SerializeField] GameObject continuePanel;
 	[SerializeField] GameObject nextLevelPanel;
 	[SerializeField] GameObject endPanel;
 	[SerializeField] GameObject canvas;
@@ -32,7 +33,7 @@ public class GM : MonoBehaviour {
 		endPanel.SetActive (false);
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		if (startPanel.activeSelf && Input.GetKeyDown (KeyCode.Space))
 			StartGame ();
@@ -44,7 +45,13 @@ public class GM : MonoBehaviour {
 			RestartGame ();
 	}
 
+
 	public void StartGame()
+	{
+		continuePanel.SetActive (true);
+	}
+
+	public void ContinueToGame()
 	{
 		startPanel.SetActive (false);
 		levels [0].SetActive (true);
